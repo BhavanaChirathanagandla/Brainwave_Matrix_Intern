@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PeacefulPlanner</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('sunrise.webp') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+    }
+    .logo-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      padding: 15px;
+      background: linear-gradient(to right, #ff69b4, #ffd700);
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .logo-bar img {
+      height: 40px;
+    }
+    .nav-tabs {
+      display: flex;
+      justify-content: center;
+      background: linear-gradient(90deg, #ff69b4, #ffd700, #87ceeb, #dda0dd);
+      padding: 10px;
+    }
+    .nav-tabs button {
+      background: none;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+    .nav-tabs button.active {
+      border-bottom: 3px solid white;
+      font-weight: bold;
+    }
+    .tab-content {
+      padding: 20px;
+      max-width: 800px;
+      margin: 20px auto;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .tab-pane {
+      display: none;
+    }
+    .tab-pane.active {
+      display: block;
+    }
+    input, textarea, button {
+      display: block;
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    .quote {
+      font-style: italic;
+      color: #555;
+      margin-bottom: 15px;
+      text-align: center;
+      font-size: 18px;
+    }
+    .schedule {
+      margin-top: 10px;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+    }
+    .home-btn {
+      text-align: center;
+    }
+    .home-btn button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ff6347;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .home-btn button:hover {
+      background-color: #e5533d;
+    }
+    .media-section {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .media-section img, .media-section video {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .media-section img:hover, .media-section video:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="logo-bar">
+    PlanItWell
+  </div>
+  <div class="nav-tabs">
+    <button class="tablink active" onclick="openTab('home')">Home</button>
+    <button class="tablink" onclick="openTab('login')">Login</button>
+    <button class="tablink" onclick="openTab('profile')">Profile</button>
+    <button class="tablink" onclick="openTab('planner')">Planner</button>
+  </div>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane active">
+      <h2>Welcome Back!</h2>
+      <div class="quote">
+        "Spend each day with purpose and peace. Your future is made of today's plans."
+      </div>
+      <div class="quote">
+        "A well-planned day is the secret to a peaceful night."
+      </div>
+      <div><strong>Today's Date:</strong> <span id="todayDate"></span></div>
+      <div class="schedule">
+        <h4>Today's Plan:</h4>
+        <ul>
+          <li>9:00 AM - Morning Exercise</li>
+          <li>11:00 AM - Project Work</li>
+          <li>2:00 PM - Team Meeting</li>
+          <li>5:00 PM - Reading Time</li>
+        </ul>
+      </div>
+      <div class="media-section">
+       <video autoplay muted loop>
+          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        </video>
+      </div><br>
+      <div class="home-btn">
+        <button onclick="openTab('planner')">Open Full Planner</button>
+      </div>
+    </div>
+
+    <div id="login" class="tab-pane">
+      <h2>Login</h2>
+      <input type="text" placeholder="Username">
+      <input type="password" placeholder="Password">
+      <button onclick="alert('Logged in!')">Login</button>
+    </div>
+
+    <div id="profile" class="tab-pane">
+      <h2>My Profile</h2>
+      <input type="file" accept="image/*">
+      <input type="text" placeholder="Full Name">
+      <input type="email" placeholder="Email">
+      <textarea placeholder="Bio or Interests"></textarea>
+      <button onclick="alert('Profile updated!')">Save Profile</button>
+    </div>
+
+    <div id="planner" class="tab-pane">
+      <h2>Plan Your Day</h2>
+<div class="media-section">
+<img src="C:\Users\vchir\OneDrive\Desktop\notebook.jpeg" alt="Objects">
+</div><br>
+      <textarea placeholder="Write your schedule here..."></textarea>
+      <button onclick="alert('Schedule saved!')">Save Schedule</button>
+    </div>
+  </div>
+
+  <script>
+    function openTab(tabName) {
+      const tabs = document.querySelectorAll('.tab-pane');
+      const buttons = document.querySelectorAll('.tablink');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      buttons.forEach(btn => btn.classList.remove('active'));
+      document.getElementById(tabName).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    document.getElementById("todayDate").textContent = new Date().toLocaleDateString();
+  </script>
+</body>
+</html>
