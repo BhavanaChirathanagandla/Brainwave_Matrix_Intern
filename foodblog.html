@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Food Blogs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #fff8e1;
+      color: #333;
+    }
+
+    header {
+      background-color: #ff7043;
+      color: white;
+      padding: 1.5rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .section {
+      padding: 2rem;
+    }
+
+    .section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: #d84315;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .blog-card {
+      background-color: #fff3e0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .blog-card:hover {
+      transform: scale(1.02);
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .blog-title {
+      padding: 12px;
+      font-weight: 600;
+      text-align: center;
+      font-size: 16px;
+      color: #e65100;
+    }
+
+    .blog-content {
+      display: none;
+      padding: 15px;
+      font-size: 14px;
+      color: #444;
+      background-color: #fff;
+      border-top: 1px solid #eee;
+    }
+
+    @media screen and (max-width: 600px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+
+      .section h2 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1><i class="fa-solid fa-utensils"></i> Food Blogs</h1>
+    <p>Discover the world through flavors 🍜</p>
+  </header>
+
+  <section class="section">
+    <h2><i class="fa-solid fa-bowl-rice"></i> Featured Food Stories</h2>
+
+    <div class="blog-grid">
+      <div class="blog-card" onclick="toggleContent(this)">
+        <img src="ISF.webp" alt="Indian Food">
+        <div class="blog-title">Top Indian Street Foods</div>
+        <div class="blog-content">From spicy pani puri to tangy chaat, discover the vibrant flavors of India’s best street snacks.</div>
+      </div>
+
+      <div class="blog-card" onclick="toggleContent(this)">
+        <img src="hm.jpg" alt="Healthy Eating">
+        <div class="blog-title">Healthy Eating Tips</div>
+        <div class="blog-content">A guide to making nutritious meals delicious, with easy recipes and eating habits that boost energy.</div>
+      </div>
+
+      <div class="blog-card" onclick="toggleContent(this)">
+        <img src="desserts.webp" alt="Desserts">
+        <div class="blog-title">Delicious Indian Desserts</div>
+        <div class="blog-content">Learn about India’s rich dessert culture — from creamy rasmalai to golden jalebi and ghee-laden laddoos.</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function toggleContent(card) {
+      const content = card.querySelector('.blog-content');
+      content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+
+</body>
+</html>

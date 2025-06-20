@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign Up - Blogging Platform</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .form-box {
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 30px;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 0 10px black;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    input {
+      background: #fff;
+      color: #000;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .link a {
+      color: yellow;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <h2>Create Account</h2>
+    <input type="text" placeholder="Username" id="signupUser">
+    <input type="password" placeholder="Password" id="signupPass">
+    <button onclick="signup()">Sign Up</button>
+    <div class="link">Already have an account? <a href="login.html">Login</a></div>
+  </div>
+
+  <script>
+    function signup() {
+      const user = document.getElementById("signupUser").value;
+      const pass = document.getElementById("signupPass").value;
+      if (user && pass) {
+        localStorage.setItem("blogUser", user);
+        localStorage.setItem("blogPass", pass);
+        alert("Account created!");
+        window.location.href = "login.html";
+      } else {
+        alert("Please fill in all fields");
+      }
+    }
+  </script>
+</body>
+</html>

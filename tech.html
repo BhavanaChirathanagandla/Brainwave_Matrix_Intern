@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Technology Blogs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #e3f2fd;
+      color: #333;
+    }
+
+    header {
+      background-color: #1565c0;
+      color: white;
+      padding: 1.5rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .section {
+      padding: 2rem;
+    }
+
+    .section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: #0d47a1;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .blog-card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .blog-card:hover {
+      transform: scale(1.02);
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .blog-title {
+      padding: 12px;
+      font-weight: 600;
+      text-align: center;
+      font-size: 16px;
+      color: #1565c0;
+    }
+
+    .blog-content {
+      display: none;
+      padding: 15px;
+      font-size: 14px;
+      color: #444;
+      background-color: #f1f8ff;
+      border-top: 1px solid #eee;
+    }
+
+    @media screen and (max-width: 600px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+
+      .section h2 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1><i class="fa-solid fa-microchip"></i> Technology Blogs</h1>
+    <p>Latest trends and innovations in tech 🚀</p>
+  </header>
+
+  <section class="section">
+    <h2><i class="fa-solid fa-brain"></i> Trending Tech Topics</h2>
+
+    <div class="blog-grid">
+      <div class="blog-card" onclick="toggleContent(this)">
+        <img src="ai.png" alt="AI Blog">
+        <div class="blog-title">The AI Revolution</div>
+        <div class="blog-content">
+          AI is transforming industries from healthcare to finance. Learn how it's driving automation and innovation.
+        </div>
+      </div>
+
+      <div class="blog-card" onclick="toggleContent(this)">
+        <img src="cb.jpg" alt="Cybersecurity">
+        <div class="blog-title">Cybersecurity in 2025</div>
+        <div class="blog-content">
+          As cyber threats evolve, so do the defenses. Explore the latest in encryption, firewalls, and cyber law.
+        </div>
+      </div>
+
+      <div class="blog-card" onclick="toggleContent(this)">
+        <img src="metaverse.jfif" alt="Metaverse">
+        <div class="blog-title">What is the Metaverse?</div>
+        <div class="blog-content">
+          A look into virtual worlds, NFTs, AR/VR, and how the metaverse could change social and work experiences.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function toggleContent(card) {
+      const content = card.querySelector('.blog-content');
+      content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+
+</body>
+</html>

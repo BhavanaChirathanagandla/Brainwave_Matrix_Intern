@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Travel Blogs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #e8f5e9;
+      color: #333;
+    }
+
+    header {
+      background-color: #43a047;
+      color: white;
+      padding: 1.5rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .section {
+      padding: 2rem;
+    }
+
+    .section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: #2e7d32;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .blog-card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .blog-card:hover {
+      transform: scale(1.02);
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .blog-title {
+      padding: 12px;
+      font-weight: 600;
+      text-align: center;
+      font-size: 16px;
+      color: #1b5e20;
+    }
+
+    .blog-content {
+      display: none;
+      padding: 15px;
+      font-size: 14px;
+      color: #444;
+      background-color: #f1f8e9;
+      border-top: 1px solid #eee;
+    }
+
+    @media screen and (max-width: 600px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+
+      .section h2 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1><i class="fa-solid fa-plane-departure"></i> Travel Blogs</h1>
+    <p>Wander the world through stories 🌍</p>
+  </header>
+
+  <section class="section">
+    <h2><i class="fa-solid fa-location-dot"></i> Explore the World</h2>
+
+    <div class="blog-grid">
+      <div class="blog-card" onclick="toggleContent(this)">
+        <img src="swiss.avif" alt="Switzerland">
+        <div class="blog-title">Exploring the Swiss Alps</div>
+        <div class="blog-content">Discover the breathtaking beauty of the Swiss mountains, scenic trains, and charming alpine villages.</div>
+      </div>
+
+      <div class="blog-card" onclick="toggleContent(this)">
+        <img src="beach.jfif" alt="Beach">
+        <div class="blog-title">Top Beach Destinations</div>
+        <div class="blog-content">From Goa to the Maldives, uncover the best beaches for your next sun-soaked vacation.</div>
+      </div>
+
+      <div class="blog-card" onclick="toggleContent(this)">
+        <img src="ny.jpg" alt="New York">
+        <div class="blog-title">A Weekend in New York City</div>
+        <div class="blog-content">Explore NYC like a local — Central Park, Times Square, and hidden cafes you shouldn’t miss.</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function toggleContent(card) {
+      const content = card.querySelector('.blog-content');
+      content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+
+</body>
+</html>
